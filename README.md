@@ -1,21 +1,25 @@
 # naftbike
 Slovnaft bike web scraper, for data analysis
 
-## Phases
-1. Phase
+<h1>Milestones</h1>
+<h2>1. Milestone</h2>
+
 Loading the web site to the local variables
 
-2. Phase
-Getting data into local database
+<h2>2. Milestone</h2>
+Data are persistently updating in our database - this step includes a cron job.
 
-3. Phase 
-Creating a query mechanism which takes snapshots on regular interval.
+<h2>3. Milestone</h2>
+Architecture is capable of providing reasonable fast response to a request. For instance, if aggregation query takes a 15min on 6 months old data => something is wrong. This have to be tested properly on generated data!
 
-4. Phase
-Deploying it online somewhere (AWS?)
+<h2>4. Milestone</h2>
+Application provides dummy REST-API implementation (GET requests for whole tables)
 
-5. Phase
-Play with the data!
+<h2>5. Milestone</h2>
+Application provides smart REST-API for "aggregated" queries (only GET requests; parameters would be maybe name/id/latitude|longitude of station, hours, days of week, months, etc.) 
 
+<h2>6. Milestone</h2>
+Dummy frontend in (probably) Vue.js, consuming REST-API and showing simple dashboard
 
-
+<h2>7. Milestone</h2>
+Frontend is capable of visualizing all RESP-API endpoints.
