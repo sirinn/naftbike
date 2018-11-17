@@ -1,23 +1,21 @@
 import datetime
-import pprint
 
-import mysql.connector
+import psycopg2
 import requests
 from bs4 import BeautifulSoup
 
 INSERT_BIKES = (
-    "INSERT INTO station "
-    "(`id`, `name`, `capacity`) "
-    "VALUES (%(id)s, %(name)s, %(capacity)s)"
+    "INSERT INTO station_info"
+    "( id, station_name, latitude, longitude, maximal_places)"
+    "VALUES (%(id)s, %(name)s, 100,  120,  %(capacity)s)"
 )
 
-my_db = mysql.connector.connect(
-    host = "naftbike.crzh5uamesgn.us-east-2.rds.amazonaws.com",
-    port = 3306,
-    database = 'naftbike',
-    user = "username",
-    passwd = "pwd"
-)
+my_db = psycopg2.connect(host="naftbike-postgre.crzh5uamesgn.us-east-2.rds.amazonaws.com",
+                         user="",
+                         password="",
+                         port="5432",
+                         database="naftbike"
+                         )
 my_cursor = my_db.cursor()
 
 
@@ -37,7 +35,6 @@ for table in soup.find_all('tr', {'class', 'trStation'}):
         'name': ele[2].text,
         'capacity': ele[3].text.split("/")[1]
     }
-    # pprint.pprint(data_bikes)
 
     my_cursor.execute(INSERT_BIKES, data_bikes)
 
