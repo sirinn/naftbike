@@ -2,11 +2,11 @@
 Slovnaft bike web scraper, for data analysis
 
 <h1>Milestones</h1>
-<h2>1. Milestone</h2>
+<h2>1. Milestone -- DONE</h2> 
 
 Loading the web site to the local variables
 
-<h2>2. Milestone</h2>
+<h2>2. Milestone -- DONE</h2>
 Data are persistently updating in our database - this step includes a cron job.
 
 <h2>3. Milestone</h2>
